@@ -1,23 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState, React } from "react";
+import SideNav from "./components/SideNav";
+import Main from "./components/Main";
+import Trends from "./components/Trends";
 
 function App() {
+  const [tweets, setTweet] = useState([
+    {
+      id: 1,
+      tweet: "This is fricking crazy Denmark to the semi finals!! 🤯",
+    },
+    {
+      id: 2,
+      tweet: "Man im hello bord!",
+    },
+  ]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container">
+      <SideNav />
+      <Main />
+      <Trends />
+      {/* Main-section (tweet & Feed) */}
+      {/* trends & search */}
     </div>
   );
 }
