@@ -1,14 +1,17 @@
 import AddTweet from "./AddTweet";
 import FeedHead from "./FeedHead";
-import Profile from "./Profile";
 import Feed from "./Feed";
-const Main = () => {
+
+const Main = ({ tweets, onAdd }) => {
   return (
     <div className="main">
       <FeedHead />
-      <AddTweet />
+      <AddTweet onAdd={onAdd} />
       <div className="division"></div>
-      <Feed />
+      {tweets.map((tweet) => (
+        <Feed key={tweet.id} tweet={tweet} />
+      ))}
+      <h1></h1>
     </div>
   );
 };

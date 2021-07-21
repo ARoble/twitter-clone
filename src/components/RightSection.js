@@ -1,12 +1,10 @@
 import TrendSearch from "./TrendSearch";
-import Trend from "./Trend";
+import Trends from "./Trends";
 const RightSection = () => {
   return (
     <div className="trends">
       <TrendSearch />
-      <Trend />
-      <Trend />
-      <Trend />
+      <Trends />
     </div>
   );
 };

@@ -22,7 +22,7 @@ input:focus {
 
 .container {
   width: 80%;
-  height: 200vh;
+  min-height: 100vh;
   margin: auto;
   display: flex;
   background-color: black;
@@ -147,6 +147,7 @@ input:focus {
   border-bottom: 1px solid grey;
   background: #15181c;
   padding: 6px 0px;
+  color: white;
 }
 
 /* feed section */
@@ -231,7 +232,7 @@ input:focus {
   display: flex;
   justify-content: space-between;
   padding: 10px 15px;
-  /* border-bottom: 1px solid grey; */
+  border-bottom: 1px solid grey;
 }
 
 .trend:hover {
@@ -241,4 +242,31 @@ input:focus {
 .trend-text {
   font-size: 12px;
   color: grey;
+}
+.stats {
+  display: flex;
+  align-items: center;
+}
+.stats a {
+  margin-left: 8px;
+  font-size: 11px;
+}
+.see-more {
+  padding: 10px 15px;
+  font-size: 20px;
+  font-weight: bold;
+}
+@media only screen and (max-width: 600px) {
+  .container {
+    width: 100%;
+  }
+  .main {
+    width: 90%;
+  }
+  .trends {
+    display: none;
+  }
+}
+
+@media only screen and (min-width: 600px and max-width:900px) {
 }
