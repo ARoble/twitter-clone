@@ -14,10 +14,10 @@ const AddTweet = () => {
         />
         <div className="tweet-control">
           <div className="tweet-icons">
-            <FaImage size={21} className="tweet-icons" />
-            <FaChartBar size={21} className="tweet-icons" />
-            <FaSmile size={21} className="tweet-icons" />
-            <FaCalendarWeek size={21} className="tweet-icons" />
+            <FaImage size={21} className="tweet-icon" />
+            <FaChartBar size={21} className="tweet-icon" />
+            <FaSmile size={21} className="tweet-icon" />
+            <FaCalendarWeek size={21} className="tweet-icon" />
           </div>
           <div className="tweet-submit">
             <button className="btn-tweet">Tweet</button>

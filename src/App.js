@@ -1,7 +1,7 @@
 import { useState, React } from "react";
 import SideNav from "./components/SideNav";
 import Main from "./components/Main";
-import Trends from "./components/Trends";
+import RightSection from "./components/RightSection";
 
 function App() {
   const [tweets, setTweet] = useState([
@@ -19,9 +19,7 @@ function App() {
     <div className="container">
       <SideNav />
       <Main />
-      <Trends />
-      {/* Main-section (tweet & Feed) */}
-      {/* trends & search */}
+      <RightSection />
     </div>
   );
 }

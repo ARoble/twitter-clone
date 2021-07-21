@@ -1,6 +1,6 @@
 * {
   margin: 0;
-  /* box-sizing: border-box; */
+  box-sizing: border-box;
 }
 body {
   margin: 0;
@@ -16,10 +16,13 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+input:focus {
+  outline: none;
+}
 
 .container {
   width: 80%;
-  height: 100vh;
+  height: 200vh;
   margin: auto;
   display: flex;
   background-color: black;
@@ -28,6 +31,7 @@ code {
 .sidenav {
   width: 8%;
 }
+
 .nav {
   display: flex;
   flex-direction: column;
@@ -50,7 +54,9 @@ code {
   color: white;
   background-color: #29a8df;
   border-radius: 50%;
-  padding: 8px;
+  padding: 10px;
+  height: 45px;
+  width: 45px;
 }
 .profile {
   display: flex;
@@ -114,10 +120,14 @@ code {
   padding: 10px 0px;
 }
 
-.tweet-icons {
+.tweet-icon {
   color: #29a8df;
-  padding: 0px 20px;
-  padding-left: 0px;
+  margin: 0px 20px;
+  margin-left: 0px;
+}
+
+.tweet-icon:hover {
+  cursor: pointer;
 }
 
 .btn-tweet {
@@ -128,6 +138,9 @@ code {
   background-color: #29a8df;
   color: white;
   font-weight: bolder;
+}
+.btn-tweet:hover {
+  cursor: pointer;
 }
 .division {
   border-top: 1px solid grey;
@@ -175,6 +188,18 @@ code {
   justify-content: space-between;
 }
 
+.tweet-like-icon:hover {
+  color: red;
+  cursor: pointer;
+}
+.tweet-retweet-icon:hover {
+  color: #32cd32;
+  cursor: pointer;
+}
+.tweet-comment-icon:hover {
+  color: #29a8df;
+  cursor: pointer;
+}
 /* trends-section */
 .trends {
   width: 35%;
@@ -185,7 +210,7 @@ code {
   border: none;
   color: #d9d9d9;
   padding: 12px 20px;
-  width: 80%;
+  width: 100%;
   background: #15181c;
 }
 
@@ -207,6 +232,11 @@ code {
   justify-content: space-between;
   padding: 10px 15px;
   /* border-bottom: 1px solid grey; */
+}
+
+.trend:hover {
+  background: #20242b;
+  cursor: pointer;
 }
 .trend-text {
   font-size: 12px;

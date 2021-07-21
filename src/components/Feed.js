@@ -20,7 +20,7 @@ const Feed = () => {
             <a className="posted-date">| 14 Jul</a>
           </div>
           <div className="feed-control">
-            <FaEllipsisH />
+            <FaEllipsisH className="tweet-comment-icon" />
           </div>
         </div>
         <div className="feed-content">
@@ -28,10 +28,10 @@ const Feed = () => {
           <a href="#">#Winners</a> will they win the world cup final 🤔
         </div>
         <div className="tweet-controls">
-          <FaComment />
-          <FaHeart />
-          <FaRetweet />
-          <FaAngleUp />
+          <FaComment className="tweet-comment-icon" />
+          <FaRetweet className="tweet-retweet-icon" />
+          <FaHeart className="tweet-like-icon" />
+          <FaAngleUp className="tweet-comment-icon" />
         </div>
       </div>
     </div>
