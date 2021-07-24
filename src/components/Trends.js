@@ -9,7 +9,7 @@ const Trends = () => {
         <FaCog />
       </div>
       <Trend
-        hashtag={"#arsenalAreShit🔴"}
+        hashtag={"#arsenal🔴"}
         stats={"230k Tweets"}
         geo={"Trending in Somalia"}
       />
@@ -19,7 +19,7 @@ const Trends = () => {
         geo={"Trending in Somalia"}
       />
       <Trend
-        hashtag={"#fuckThePeopledem"}
+        hashtag={"#somaliland"}
         stats={"52k Tweets"}
         geo={"Trending in Somalia"}
       />

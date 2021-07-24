@@ -9,15 +9,16 @@ function App() {
   const [tweets, setTweets] = useState([]);
 
   useEffect(() => {
+    document.querySelector(".tweet-loading").style.display = "display";
     async function fetchData() {
       const res = await axios.get("http://localhost:8080/api/v1/tweet");
       const data = res.data.data;
-      console.log(res.data.data);
+      document.querySelector(".tweet-loading").style.display = "none";
       setTweets(data);
     }
 
     fetchData();
-  }, [tweets]);
+  }, []);
 
   const AddTweet = ({ tweet }) => {
     const newtweet = {
@@ -50,10 +51,25 @@ function App() {
       });
   };
 
+  const commentTweet = (comment) => {
+    axios
+      .post("http://localhost:8080/api/v1/comment", comment)
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  };
   return (
     <div className="container">
       <SideNav />
-      <Main tweets={tweets} onAdd={AddTweet} onLike={likeTweet} />
+      <Main
+        tweets={tweets}
+        onAdd={AddTweet}
+        onLike={likeTweet}
+        onComment={commentTweet}
+      />
       <RightSection />
     </div>
   );

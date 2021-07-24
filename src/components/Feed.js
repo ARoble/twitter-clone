@@ -4,11 +4,16 @@ import {
   FaComment,
   FaRetweet,
   FaAngleUp,
+  FaTimes,
 } from "react-icons/fa";
+import { useState } from "react";
 import Profile from "./Profile";
 import dateFormat from "dateformat";
+import Comment from "./Comment";
 
-const Feed = ({ tweet, onLike }) => {
+const Feed = ({ tweet, onLike, onComment }) => {
+  const [comment, setComment] = useState("");
+  const [popupState, setPopupState] = useState({ open: false });
   const like = (id) => {
     onLike({ id });
   };
@@ -18,6 +23,19 @@ const Feed = ({ tweet, onLike }) => {
     const tweetedDate = dateFormat(newDate[0], "dd mmm");
     return tweetedDate;
   }
+  const closeDiv = () => {
+    return () => setPopupState({ open: false });
+  };
+  const showComment = (id) => {
+    console.log(id);
+    return () => setPopupState({ open: true, id });
+    // return () => setPopupState({ open: true, tweet });
+  };
+
+  const saveComment = (e, tweet) => {
+    e.preventDefault();
+    onComment({ tweet, comment });
+  };
   return (
     <div className="feed">
       <div className="tweet-profile">
@@ -37,7 +55,10 @@ const Feed = ({ tweet, onLike }) => {
         <div className="feed-content">{tweet.tweet}</div>
         <div className="tweet-controls">
           <div className="stats">
-            <FaComment className="tweet-comment-icon" />
+            <FaComment
+              className="tweet-comment-icon"
+              onClick={showComment(tweet._id)}
+            />
             <a>{tweet.comments.length}</a>
           </div>
           <div className="stats">
@@ -57,7 +78,76 @@ const Feed = ({ tweet, onLike }) => {
             <FaAngleUp className="tweet-comment-icon" />
           </div>
         </div>
+        {popupState.tweet}
+        {popupState.open === true && (
+          <form
+            className="comment-div"
+            //   onSubmit={(e) => saveComment(e, tweet._id)}
+          >
+            <div className="comment-back">
+              <div className="comment-content">
+                <div className="close">
+                  <FaTimes className="pointer" onClick={closeDiv()} />
+                </div>
+                <Comment
+                  tweetID={popupState.id}
+                  tweet={tweet}
+                  onClick={() => setPopupState({ open: false })}
+                />
+              </div>
+            </div>
+          </form>
+        )}
       </div>
+      {/* <form
+        className="comment-div hidden"
+        onSubmit={(e) => saveComment(e, tweet._id)}
+      >
+        <div className="comment-back">
+          <div className="comment-content">
+            <div className="close">
+              <FaTimes className="pointer" onClick={closeDiv} />
+            </div>
+            <div className="comment-tweet flex">
+              <div className="profile">
+                <Profile value={"tweet-profile-img"} src={"/profile.jpg"} />
+              </div>
+              <div className="comment-tweet-content">
+                <div className="feed-header">
+                  <div className="feed-profile-info">
+                    <a className="profile-name">{tweet.user.name}</a>
+                    <a className="profile-at">@{tweet.user.userName}</a>
+                    <a className="posted-date">| {date()}</a>
+                  </div>
+                </div>
+                <div className="feed-content">{tweet.tweet}</div>
+                <div className="reply-to">
+                  Replying to{" "}
+                  <a class="at" href="#">
+                    @{tweet.user.userName}
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div className="comment-input flex">
+              <div className="profile">
+                <Profile value={"tweet-profile-img"} src={"/profile.jpg"} />
+              </div>
+              <input
+                className="tweet-input tweet-reply"
+                type="text"
+                placeholder="Tweet your reply"
+                onChange={(e) => setComment(e.target.value)}
+              />
+            </div>
+            <div className="comment-button">
+              <button className="btn-tweet" type="submit">
+                Reply
+              </button>
+            </div>
+          </div>
+        </div>
+      </form> */}
     </div>
   );
 };

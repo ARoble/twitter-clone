@@ -31,7 +31,9 @@ input:focus {
 .sidenav {
   width: 8%;
 }
-
+.flex {
+  display: flex;
+}
 .nav {
   display: flex;
   flex-direction: column;
@@ -256,6 +258,92 @@ input:focus {
   font-size: 20px;
   font-weight: bold;
 }
+
+.tweet-loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 20px 0px;
+}
+
+.spinner {
+  animation: spin-animation 1s infinite;
+  font-size: 25px;
+  color: #29a8df;
+}
+.main {
+  position: relative;
+}
+.comment-div {
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}
+
+.comment-content {
+  background-color: black;
+  border-radius: 5px;
+  color: white;
+  width: 45%;
+  margin: 100px auto;
+  padding: 30px;
+}
+.comment-tweet {
+  padding: 15px 0px;
+}
+.comment-tweet .comment-tweet-content {
+  padding-left: 10px;
+}
+.close {
+  border-bottom: 1px solid #d9d9d9;
+  color: #29a8df;
+}
+.comment-input {
+  padding: 20px 0px;
+}
+.tweet-reply {
+  padding-left: 10px;
+}
+.comment-button {
+  display: flex;
+  justify-content: end;
+}
+.pointer {
+  cursor: pointer;
+}
+.hidden {
+  display: none;
+}
+.at {
+  color: #29a8df;
+  text-decoration: none;
+}
+.comment-back {
+  background-color: rgba(91, 112, 131, 0.4);
+  height: 100vh;
+  width: 100%;
+  top: 0;
+  position: fixed;
+}
+.reply-to {
+  color: grey;
+  padding-top: 10px;
+}
+@keyframes spin-animation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(359deg);
+  }
+}
+
 @media only screen and (max-width: 600px) {
   .container {
     width: 100%;
