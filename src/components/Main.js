@@ -2,6 +2,7 @@ import AddTweet from "./AddTweet";
 import FeedHead from "./FeedHead";
 import Feed from "./Feed";
 import { FaSpinner } from "react-icons/fa";
+
 const Main = ({ tweets, onAdd, onLike, onComment }) => {
   return (
     <div className="main">
@@ -14,7 +15,10 @@ const Main = ({ tweets, onAdd, onLike, onComment }) => {
         </div>
       </div>
       {tweets.map((tweet) => (
-        <a href="#" style={{ textDecoration: "none", color: "inherit" }}>
+        <a
+          href={`/tweet/${tweet._id}`}
+          style={{ textDecoration: "none", color: "inherit" }}
+        >
           <Feed
             key={tweet._id}
             tweet={tweet}

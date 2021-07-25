@@ -67,6 +67,7 @@ const Feed = ({ tweet, onLike, onComment }) => {
             />
             <a>{tweet.likes.length}</a>
           </div>
+
           <div className="stats">
             <FaAngleUp className="tweet-comment-icon" />
           </div>
