@@ -308,7 +308,7 @@ input:focus {
   padding: 20px 0px;
 }
 .tweet-reply {
-  padding-left: 10px;
+  margin-left: 10px;
 }
 .comment-button {
   display: flex;

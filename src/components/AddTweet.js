@@ -6,8 +6,8 @@ const AddTweet = ({ onAdd }) => {
 
   const postTweet = (e) => {
     e.preventDefault();
-    console.log("hi");
     onAdd({ tweet });
+    setTweet("");
   };
 
   return (

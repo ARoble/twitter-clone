@@ -18,7 +18,7 @@ function App() {
     }
 
     fetchData();
-  }, []);
+  }, [tweets]);
 
   const AddTweet = ({ tweet }) => {
     const newtweet = {

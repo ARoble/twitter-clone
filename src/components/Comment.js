@@ -1,9 +1,25 @@
 import userEvent from "@testing-library/user-event";
-import React from "react";
+import { useState } from "react";
 import { FaTimes } from "react-icons/fa";
 import dateFormat from "dateformat";
 import Profile from "./Profile";
-const Comment = ({ tweetID, tweet }) => {
+const Comment = ({ tweetID, tweet, onComment, onClick }) => {
+  const [comment, setComment] = useState("");
+
+  const saveComment = (e, tweet) => {
+    e.preventDefault();
+    if (comment == "") {
+      document.querySelector(".tweet-reply").style.border = "2px solid red";
+      document.querySelector(".tweet-reply").style.borderRadius = "5px";
+
+      console.log("empty");
+    } else {
+      onComment({ tweet, comment });
+      setComment("");
+      onClick();
+    }
+  };
+
   function date() {
     const newDate = tweet.tweeted.split("T");
     const tweetedDate = dateFormat(newDate[0], "dd mmm");
@@ -40,11 +56,15 @@ const Comment = ({ tweetID, tweet }) => {
           className="tweet-input tweet-reply"
           type="text"
           placeholder="Tweet your reply"
-          //   onChange={(e) => setComment(e.target.value)}
+          onChange={(e) => setComment(e.target.value)}
         />
       </div>
       <div className="comment-button">
-        <button className="btn-tweet" type="submit">
+        <button
+          className="btn-tweet"
+          type="submit"
+          onClick={(e) => saveComment(e, tweet._id)}
+        >
           Reply
         </button>
       </div>

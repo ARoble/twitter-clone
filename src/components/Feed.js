@@ -12,7 +12,6 @@ import dateFormat from "dateformat";
 import Comment from "./Comment";
 
 const Feed = ({ tweet, onLike, onComment }) => {
-  const [comment, setComment] = useState("");
   const [popupState, setPopupState] = useState({ open: false });
   const like = (id) => {
     onLike({ id });
@@ -27,15 +26,9 @@ const Feed = ({ tweet, onLike, onComment }) => {
     return () => setPopupState({ open: false });
   };
   const showComment = (id) => {
-    console.log(id);
     return () => setPopupState({ open: true, id });
-    // return () => setPopupState({ open: true, tweet });
   };
 
-  const saveComment = (e, tweet) => {
-    e.preventDefault();
-    onComment({ tweet, comment });
-  };
   return (
     <div className="feed">
       <div className="tweet-profile">
@@ -92,6 +85,7 @@ const Feed = ({ tweet, onLike, onComment }) => {
                 <Comment
                   tweetID={popupState.id}
                   tweet={tweet}
+                  onComment={onComment}
                   onClick={() => setPopupState({ open: false })}
                 />
               </div>

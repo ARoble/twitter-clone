@@ -14,12 +14,14 @@ const Main = ({ tweets, onAdd, onLike, onComment }) => {
         </div>
       </div>
       {tweets.map((tweet) => (
-        <Feed
-          key={tweet._id}
-          tweet={tweet}
-          onLike={onLike}
-          onComment={onComment}
-        />
+        <a href="#" style={{ textDecoration: "none", color: "inherit" }}>
+          <Feed
+            key={tweet._id}
+            tweet={tweet}
+            onLike={onLike}
+            onComment={onComment}
+          />
+        </a>
       ))}
       <h1></h1>
     </div>
