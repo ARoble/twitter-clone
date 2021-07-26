@@ -5,7 +5,7 @@ Wanted to learn react and decided to do a twitter clone for my first project �
 TechStack \
 [✅]Node.js (express) \
 [✅]Mongoose \
-[✅]React!😊 \
+[✅]React!😊
 
 # Getting Started with Create React App
 
