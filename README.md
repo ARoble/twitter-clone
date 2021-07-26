@@ -1,3 +1,12 @@
+# About the project
+
+Wanted to learn react and decided to do a twitter clone for my first project 😅. Enjoying it thus far i learnt sooo much throgh this project definetly could refactor my code and anyone is welcome to lol. So yeah still working on it hopefully it will be done some 🤞🏾
+
+TechStack
+[✅]Node.js (express)
+[✅]Mongoose
+[✅]React!😊
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
