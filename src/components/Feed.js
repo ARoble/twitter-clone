@@ -30,7 +30,7 @@ const Feed = ({ tweet, onLike, onComment }) => {
   };
 
   return (
-    <div className="feed">
+    <div className="feed ">
       <div className="tweet-profile">
         <Profile value={"tweet-profile-img"} src={tweet.user.profileImg} />
       </div>

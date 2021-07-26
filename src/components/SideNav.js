@@ -9,11 +9,16 @@ import {
   FaEllipsisH,
   FaFeatherAlt,
 } from "react-icons/fa";
+
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 const SideNav = () => {
   return (
     <div className="sidenav">
       <div className="nav">
-        <img className="logo" src="/twitter.png" alt="Twitter Logo" />
+        <Link to="/">
+          <img className="logo" src="/twitter.png" alt="Twitter Logo" />
+        </Link>
+
         <FaHome size={24} className="icons" />
         <FaBell size={24} className="icons" />
         <FaHashtag size={24} className="icons" />

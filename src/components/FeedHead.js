@@ -1,8 +1,8 @@
 import { FaStar } from "react-icons/fa";
-const FeedHead = () => {
+const FeedHead = ({ title }) => {
   return (
     <div className="head">
-      <h3>Home</h3>
+      <h3>{title}</h3>
       <FaStar className="blue" />
     </div>
   );

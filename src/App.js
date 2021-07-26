@@ -11,16 +11,25 @@ function App() {
   const [tweets, setTweets] = useState([]);
 
   useEffect(() => {
-    // document.querySelector(".tweet-loading").style.display = "display";
+    //  document.querySelector(".tweet-loading").style.display = "display";
     async function fetchData() {
       const res = await axios.get("http://localhost:8080/api/v1/tweet");
       const data = res.data.data;
-      // document.querySelector(".tweet-loading").style.display = "none";
+      //  document.querySelector(".tweet-loading").style.display = "none";
       setTweets(data);
     }
 
     fetchData();
   }, [tweets]);
+
+  const findTweet = () => {
+    // const data = tweets.find(
+    //   (tweet) => tweet._id == "60f940bebf890f27d46a6b15"
+    // );
+    console.log(tweets);
+    return tweets;
+  };
+  findTweet();
 
   const AddTweet = ({ tweet }) => {
     const newtweet = {
@@ -65,8 +74,9 @@ function App() {
   };
   return (
     <div className="container">
-      <SideNav />
       <Router>
+        <SideNav />
+        {/* routes for the middle div */}
         <Switch>
           <Route exact path="/">
             <Main
@@ -76,13 +86,12 @@ function App() {
               onComment={commentTweet}
             />
           </Route>
-          <Route path="/go">
-            <Comments />
+          <Route path="/tweet/:id">
+            <Comments tweet={findTweet()} />
           </Route>
         </Switch>
+        {/* routes for the middle div */} <RightSection />
       </Router>
-
-      <RightSection />
     </div>
   );
 }

@@ -335,6 +335,10 @@ input:focus {
   color: grey;
   padding-top: 10px;
 }
+.link {
+  text-decoration: "none";
+  color: "inherit";
+}
 @keyframes spin-animation {
   0% {
     transform: rotate(0deg);
