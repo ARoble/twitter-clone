@@ -1,8 +1,7 @@
-import userEvent from "@testing-library/user-event";
 import { useState } from "react";
 import { FaTimes } from "react-icons/fa";
 import dateFormat from "dateformat";
-import Profile from "./Profile";
+import Profile from "../partials/Profile";
 const Comment = ({ tweetID, tweet, onComment, onClick }) => {
   const [comment, setComment] = useState("");
 

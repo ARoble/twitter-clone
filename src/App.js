@@ -1,35 +1,30 @@
 import { useState, React, useEffect } from "react";
-import SideNav from "./components/SideNav";
+import SideNav from "./components/sidebars/SideNav";
 import Main from "./components/Main";
-import RightSection from "./components/RightSection";
-import Comments from "./components/Comments";
+import RightSection from "./components/sidebars/RightSection";
+import Comments from "./components/tweet/Comments";
 import axios from "axios";
 
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  useParams,
+} from "react-router-dom";
 
 function App() {
   const [tweets, setTweets] = useState([]);
-
+  const [loading, setLoading] = useState(true);
   useEffect(() => {
-    //  document.querySelector(".tweet-loading").style.display = "display";
     async function fetchData() {
       const res = await axios.get("http://localhost:8080/api/v1/tweet");
       const data = res.data.data;
-      //  document.querySelector(".tweet-loading").style.display = "none";
+      setLoading(false);
       setTweets(data);
     }
 
     fetchData();
-  }, [tweets]);
-
-  const findTweet = () => {
-    // const data = tweets.find(
-    //   (tweet) => tweet._id == "60f940bebf890f27d46a6b15"
-    // );
-    console.log(tweets);
-    return tweets;
-  };
-  findTweet();
+  }, []);
 
   const AddTweet = ({ tweet }) => {
     const newtweet = {
@@ -39,7 +34,6 @@ function App() {
     axios
       .post("http://localhost:8080/api/v1/tweet", newtweet)
       .then(function (response) {
-        console.log(response.data.data.newTweet);
         setTweets([...tweets, response.data.data.newTweet]);
       })
       .catch(function (error) {
@@ -54,9 +48,7 @@ function App() {
     };
     axios
       .post("http://localhost:8080/api/v1/like", newtweet)
-      .then(function (response) {
-        console.log(response);
-      })
+      .then(function (response) {})
       .catch(function (error) {
         console.log(error);
       });
@@ -65,13 +57,12 @@ function App() {
   const commentTweet = (comment) => {
     axios
       .post("http://localhost:8080/api/v1/comment", comment)
-      .then(function (response) {
-        console.log(response);
-      })
+      .then(function (response) {})
       .catch(function (error) {
         console.log(error);
       });
   };
+
   return (
     <div className="container">
       <Router>
@@ -84,13 +75,16 @@ function App() {
               onAdd={AddTweet}
               onLike={likeTweet}
               onComment={commentTweet}
+              loading={loading}
             />
           </Route>
+
           <Route path="/tweet/:id">
-            <Comments tweet={findTweet()} />
+            <Comments />
           </Route>
         </Switch>
-        {/* routes for the middle div */} <RightSection />
+        {/* routes for the middle div */}
+        <RightSection />
       </Router>
     </div>
   );

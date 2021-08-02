@@ -1,4 +1,4 @@
-import Profile from "./Profile";
+import Profile from "../partials/Profile";
 import { useState } from "react";
 import { FaImage, FaChartBar, FaSmile, FaCalendarWeek } from "react-icons/fa";
 const AddTweet = ({ onAdd }) => {

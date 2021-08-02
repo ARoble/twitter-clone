@@ -1,5 +1,5 @@
 import TrendSearch from "./TrendSearch";
-import Trends from "./Trends";
+import Trends from "../widgets/Trends";
 const RightSection = () => {
   return (
     <div className="trends">

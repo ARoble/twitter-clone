@@ -7,7 +7,7 @@ import {
   FaTimes,
 } from "react-icons/fa";
 import { useState } from "react";
-import Profile from "./Profile";
+import Profile from "../partials/Profile";
 import dateFormat from "dateformat";
 import Comment from "./Comment";
 
@@ -28,10 +28,11 @@ const Feed = ({ tweet, onLike, onComment }) => {
   const showComment = (id) => {
     return () => setPopupState({ open: true, id });
   };
-
+  // console.log(tweet.user.name);
   return (
     <div className="feed ">
-      <div className="tweet-profile">
+      {tweet.tweet}
+      {/* <div className="tweet-profile">
         <Profile value={"tweet-profile-img"} src={tweet.user.profileImg} />
       </div>
       <div className="feed-section">
@@ -93,56 +94,7 @@ const Feed = ({ tweet, onLike, onComment }) => {
             </div>
           </form>
         )}
-      </div>
-      {/* <form
-        className="comment-div hidden"
-        onSubmit={(e) => saveComment(e, tweet._id)}
-      >
-        <div className="comment-back">
-          <div className="comment-content">
-            <div className="close">
-              <FaTimes className="pointer" onClick={closeDiv} />
-            </div>
-            <div className="comment-tweet flex">
-              <div className="profile">
-                <Profile value={"tweet-profile-img"} src={"/profile.jpg"} />
-              </div>
-              <div className="comment-tweet-content">
-                <div className="feed-header">
-                  <div className="feed-profile-info">
-                    <a className="profile-name">{tweet.user.name}</a>
-                    <a className="profile-at">@{tweet.user.userName}</a>
-                    <a className="posted-date">| {date()}</a>
-                  </div>
-                </div>
-                <div className="feed-content">{tweet.tweet}</div>
-                <div className="reply-to">
-                  Replying to{" "}
-                  <a class="at" href="#">
-                    @{tweet.user.userName}
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div className="comment-input flex">
-              <div className="profile">
-                <Profile value={"tweet-profile-img"} src={"/profile.jpg"} />
-              </div>
-              <input
-                className="tweet-input tweet-reply"
-                type="text"
-                placeholder="Tweet your reply"
-                onChange={(e) => setComment(e.target.value)}
-              />
-            </div>
-            <div className="comment-button">
-              <button className="btn-tweet" type="submit">
-                Reply
-              </button>
-            </div>
-          </div>
-        </div>
-      </form> */}
+      </div> */}
     </div>
   );
 };
