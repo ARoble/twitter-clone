@@ -24,7 +24,7 @@ function App() {
     }
 
     fetchData();
-  }, []);
+  }, [tweets]);
 
   const AddTweet = ({ tweet }) => {
     const newtweet = {
@@ -54,9 +54,15 @@ function App() {
       });
   };
 
-  const commentTweet = (comment) => {
+  const commentTweet = ({ tweet, comment }) => {
+    const newComment = {
+      tweet_id: tweet,
+      tweet: comment,
+      user: "60f82be3bca534750cf257e4",
+    };
+    console.log(newComment);
     axios
-      .post("http://localhost:8080/api/v1/comment", comment)
+      .post("http://localhost:8080/api/v1/comment", newComment)
       .then(function (response) {})
       .catch(function (error) {
         console.log(error);

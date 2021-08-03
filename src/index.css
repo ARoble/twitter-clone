@@ -339,6 +339,11 @@ input:focus {
   text-decoration: "none";
   color: "inherit";
 }
+
+/* Comment section */
+.comment-section{
+  padding: 10px 10px;
+}
 @keyframes spin-animation {
   0% {
     transform: rotate(0deg);

@@ -10,7 +10,7 @@ import { useState } from "react";
 import Profile from "../partials/Profile";
 import dateFormat from "dateformat";
 import Comment from "./Comment";
-
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 const Feed = ({ tweet, onLike, onComment }) => {
   const [popupState, setPopupState] = useState({ open: false });
   const like = (id) => {
@@ -34,6 +34,7 @@ const Feed = ({ tweet, onLike, onComment }) => {
       <div className="tweet-profile">
         <Profile value={"tweet-profile-img"} src={tweet.user.profileImg} />
       </div>
+
       <div className="feed-section">
         <div className="feed-header">
           <div className="feed-profile-info">
@@ -46,6 +47,7 @@ const Feed = ({ tweet, onLike, onComment }) => {
           </div>
         </div>
         <div className="feed-content">{tweet.tweet}</div>
+
         <div className="tweet-controls">
           <div className="stats">
             <FaComment
