@@ -31,8 +31,7 @@ const Feed = ({ tweet, onLike, onComment }) => {
   // console.log(tweet.user.name);
   return (
     <div className="feed ">
-      {tweet.tweet}
-      {/* <div className="tweet-profile">
+      <div className="tweet-profile">
         <Profile value={"tweet-profile-img"} src={tweet.user.profileImg} />
       </div>
       <div className="feed-section">
@@ -94,7 +93,7 @@ const Feed = ({ tweet, onLike, onComment }) => {
             </div>
           </form>
         )}
-      </div> */}
+      </div>
     </div>
   );
 };
